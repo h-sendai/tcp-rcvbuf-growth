@@ -87,7 +87,7 @@ int main(int argc, char *argv[])
     if (read_data == NULL) {
         err(1, "malloc for read_data");
     }
-    memset(read_data, 0, sizeof(struct read_data)*(n_read + 1));
+    memset(read_data, 0, sizeof(struct read_data)*(n_read + 2));
 
     char *remote = argv[0];
     int sockfd = tcp_socket();
