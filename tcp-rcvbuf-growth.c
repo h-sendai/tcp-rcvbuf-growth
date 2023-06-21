@@ -80,14 +80,14 @@ int main(int argc, char *argv[])
     if (buf == NULL) {
         err(1, "malloc for buf");
     }
-    memset(buf, 0, bufsize);
+    explicit_bzero(buf, bufsize);
 
     struct read_data *read_data = malloc(sizeof(struct read_data)*(n_read + 2));
     // +2: before connect() and just after connect()
     if (read_data == NULL) {
         err(1, "malloc for read_data");
     }
-    memset(read_data, 0, sizeof(struct read_data)*(n_read + 2));
+    explicit_bzero(read_data, sizeof(struct read_data)*(n_read + 2));
 
     char *remote = argv[0];
     int sockfd = tcp_socket();
